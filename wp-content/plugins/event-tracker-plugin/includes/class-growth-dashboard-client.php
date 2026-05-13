@@ -103,7 +103,7 @@ class GrowthDashboardClient {
         
         // Group 1: Filter out known testing domains
         $testing_domains = [
-            'multisiteshopper.test',
+            'multisitenetwork.test',
             'example-staging-api.shop',
             'example.com',
             'testsite.com',
