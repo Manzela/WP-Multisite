@@ -1,0 +1,19 @@
+/* scss/components/_mixins.scss */
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @mixin transition($properties...) {
+    transition: $properties $transition-speed ease-in-out;
+  }
+  
+  @mixin responsive-padding($size) {
+    padding: $size;
+    
+    @media (max-width: 768px) {
+      padding: calc($size / 2);
+    }
+  }
+  

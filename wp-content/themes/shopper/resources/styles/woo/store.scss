@@ -1,0 +1,24 @@
+.price {
+    del {
+        .woocommerce-Price-amount {
+            color: var(--color-primary);
+        }
+    }
+}
+.woocommerce-ordering {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0 !important;
+    
+    & select {
+        border: none;
+        background-color: transparent;
+    }
+}
+
+.woocommerce .widget_price_filter .price_slider_amount {
+    text-align: left;
+}
+body.rtl .woocommerce .widget_price_filter .price_slider_amount {
+    text-align: right;
+}

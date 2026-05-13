@@ -1,0 +1,27 @@
+//check if can be done from fibo
+
+.rtl .dgwt-wcas-sf-wrapp .dgwt-wcas-search-submit:before{
+    display: none;
+}
+
+// manipulating colors of search-bar icon (magnifying glass)
+form.dgwt-wcas-search-form button.dgwt-wcas-search-submit {
+    background: white;
+    border:1px solid #ddd;
+    border-right: unset;
+    left: 0;
+    right: auto;
+    &::before { content: unset; } // remove the arrow
+    & svg {
+      background: white;
+      & path {
+        fill: black;
+    }
+  }
+}
+
+
+
+input[type=search].dgwt-wcas-search-input, input[type=text].dgwt-cas-search-input {
+text-align: right;
+}

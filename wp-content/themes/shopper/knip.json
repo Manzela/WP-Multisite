@@ -1,0 +1,35 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "entry": [
+    "resources/scripts/app.js",
+    "resources/scripts/editor.js",
+    "functions.php",
+    "**/*.php",
+    "bud.config.js",
+    "tailwind.config.js"
+  ],
+  "project": [
+    "resources/**/*.{js,ts,jsx,tsx,css,scss}",
+    "**/*.php"
+  ],
+  "ignore": [
+    "node_modules/**",
+    "vendor/**",
+    "dist/**",
+    "public/**"
+  ],
+  "ignoreDependencies": [
+    "@swc/helpers",
+    "jquery",
+    "tailwindcss",
+    "alpinejs",
+    "@roots/bud-sass",
+    "@roots/bud-tailwindcss",
+    "@alpinejs/*",
+    "@tailwindcss/*"
+  ],
+  "ignoreBinaries": [
+    "bud",
+    "wp"
+  ]
+}

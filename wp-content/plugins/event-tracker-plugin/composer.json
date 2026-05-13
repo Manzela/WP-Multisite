@@ -1,0 +1,15 @@
+{
+    "name": "event-tracker/plugin",
+    "description": "WordPress event tracking plugin with Google Cloud Storage integration",
+    "type": "wordpress-plugin",
+    "require": {
+        "php": ">=7.4",
+        "google/cloud-storage": "^1.30"
+    },
+    "autoload": {
+        "psr-4": {
+            "EventTracker\\": "includes/"
+        }
+    },
+    "minimum-stability": "stable"
+} 

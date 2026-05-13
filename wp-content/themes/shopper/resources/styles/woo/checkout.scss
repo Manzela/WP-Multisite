@@ -1,0 +1,17 @@
+.wc-block-checkout__shipping-method-option:first-of-type {
+    @apply hidden;
+}
+.woocommerce-checkout .place-order {
+    @apply hidden;
+}
+
+form.checkout {
+    .woocommerce-checkout-review-order-table .woocommerce-shipping-totals {
+        @apply hidden;
+    }
+
+}
+
+body.woocommerce-order-received section.woocommerce-order-details tfoot tr:nth-child(2) {
+    @apply hidden;
+}

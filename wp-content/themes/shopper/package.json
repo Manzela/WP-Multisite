@@ -1,0 +1,43 @@
+{
+  "name": "sage",
+  "private": true,
+  "browserslist": [
+    "extends @roots/browserslist-config"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "bud dev",
+    "build": "bud build",
+    "translate": "npm run translate:pot && npm run translate:update",
+    "translate:pot": "wp i18n make-pot . ./resources/lang/sage.pot --include=\"theme.json,patterns,app,resources\"",
+    "translate:update": "for file in ./resources/lang/*.po; do wp i18n update-po ./resources/lang/sage.pot $file; done",
+    "translate:compile": "npm run translate:mo && npm run translate:js",
+    "translate:js": "wp i18n make-json ./resources/lang --pretty-print",
+    "translate:mo": "wp i18n make-mo ./resources/lang ./resources/lang",
+    "audit:dead-code": "knip",
+    "validate:safe-delete": "npm run build",
+    "cleanup:dry-run": "knip --reporter json > knip-report.json",
+    "knip": "knip"
+  },
+  "devDependencies": {
+    "@roots/bud": "6.24.0",
+    "@roots/bud-sass": "6.24.0",
+    "@roots/bud-tailwindcss": "6.24.0",
+    "@roots/sage": "6.24.0",
+    "@tailwindcss/forms": "^0.5.9",
+    "@types/node": "^25.2.1",
+    "knip": "^5.83.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@alpinejs/collapse": "^3.14.3",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/typography": "^0.5.15",
+    "alpinejs": "3.14.1",
+    "tailwindcss": "3.4.12",
+    "tailwindcss-rtl": "0.9.0"
+  }
+}

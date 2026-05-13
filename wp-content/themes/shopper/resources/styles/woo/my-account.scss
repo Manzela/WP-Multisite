@@ -1,0 +1,130 @@
+// resources/styles/my-account.scss
+.my-account {
+    h2 {
+        @apply hidden;
+    }
+    // Enhancing the page header
+
+
+    .woocommerce { 
+        @apply lg:flex;
+    }
+    // Styling the WooCommerce navigation
+    .woocommerce-MyAccount-navigation {
+        @apply bg-gray-100 rounded-lg shadow-md;
+        order: -1;
+        
+        @media (min-width: 768px) {
+            width: 20rem;
+            flex-shrink: 0;
+            margin-left: 1.5rem;
+        }
+
+        ul {
+            @apply list-none p-4;
+            
+            li {
+                @apply mb-2;
+                
+                &.is-active {
+                    @apply bg-blue-500 text-white;
+                    
+                    a {
+                        @apply text-white;
+                    }
+                }
+                
+                a {
+                    @apply block p-2 rounded hover:bg-blue-600 hover:text-white w-full;
+                }
+            }
+        }
+
+        // hide the "downloads" section
+        li.woocommerce-MyAccount-navigation-link--downloads {
+            display: none;
+        }
+    }
+}
+
+// Enhancing the content area
+.woocommerce-MyAccount-content {
+    @apply p-4 bg-white rounded-lg shadow;
+    
+    @media (min-width: 768px) {
+        flex-grow: 1;
+    }
+
+    p {
+        @apply mb-4;
+    }
+
+    .woocommerce-Address-title {
+        @apply flex mt-8;
+    }
+}
+
+// Enhancing the login form
+.woocommerce-form-login {
+    @apply bg-white rounded-lg shadow-lg p-8 md:p-12 max-w-xl mx-auto w-full;
+    margin: 0 !important;
+
+    h2 {
+        @apply text-4xl font-extrabold mb-8 text-gray-900 text-center;
+    }
+
+    .woocommerce-form-row {
+        @apply mb-6 w-full;
+
+        label {
+            @apply block text-gray-700 mb-2 font-semibold text-lg;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            @apply w-full p-4 border border-gray-300 rounded-lg transition duration-200 text-lg;
+
+            &:focus {
+                @apply border-blue-500 ring-2 ring-blue-200 outline-none;
+            }
+        }
+    }
+
+    .password-input {
+        @apply relative w-full;
+
+        .show-password-input {
+            @apply absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 cursor-pointer text-xl;
+        }
+    }
+
+    .form-row {
+        @apply flex flex-col items-start justify-between mt-8 w-full;
+
+        .woocommerce-form__label-for-checkbox {
+            @apply flex items-center mb-4;
+
+            input[type="checkbox"] {
+                @apply ml-2 h-5 w-5;
+                order: 2; // Move checkbox to the left of the text
+            }
+
+            span {
+                @apply text-lg;
+                order: 1; // Move text to the right of the checkbox
+            }
+        }
+
+        button {
+            @apply bg-blue-600 text-white py-4 px-8 rounded-lg hover:bg-blue-700 transition duration-200 font-semibold text-lg w-full;
+        }
+    }
+
+    .lost_password {
+        @apply mt-6 text-center w-full;
+
+        a {
+            @apply text-blue-600 hover:underline font-medium text-lg;
+        }
+    }
+}

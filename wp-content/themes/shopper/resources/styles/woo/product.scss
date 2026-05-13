@@ -1,0 +1,30 @@
+// General fix: 
+// applies to all products ( store, single, related )
+// when there are two prices, switch places. (for example: 5-10 instead of 10-5) // has no effect on a single price
+.product-price, .variation-price {
+    display: inline-block;
+    width: fit-content;
+    direction: ltr;
+}
+
+#single-product .added_to_cart.wc-forward {
+    display: none;
+}
+
+// smaller font size for sale price
+#single-product .product-price del, #single-product .variation-price del { // single product page
+    @apply text-lg;
+}
+body.archive .product-price del, body.archive .variation-price del { // store page
+    @apply text-xs;
+}
+
+// define price colors
+.product-price , .variation-price {
+    del { // old price
+        @apply text-gray-300;
+    } 
+    ins { // sale price
+        @apply text-red-500;
+    }
+}

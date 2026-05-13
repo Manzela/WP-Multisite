@@ -1,0 +1,78 @@
+# WordPress core (bring your own)
+/wp-admin/
+/wp-includes/
+/wp-config.php
+/wp-config-local.php
+wp-cli.local.yml
+
+# Sensitive WP data
+.env
+.env.*
+wp-content/uploads/
+wp-content/blogs.dir/
+wp-content/upgrade/
+wp-content/cache/
+wp-content/backup-db/
+wp-content/backups/
+
+# Vendor / build artefacts
+**/vendor/
+**/node_modules/
+**/composer.lock
+**/package-lock.json
+**/yarn.lock
+**/storage/framework/cache/
+**/storage/framework/views/
+**/storage/logs/
+**/public/build/
+**/public/css/app.*.css
+**/public/js/app.*.js
+
+# Backups
+*.bak
+*.bak.*
+*.swp
+*~
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# Tooling caches
+.cursor/
+.agent/
+.claude/
+.firecrawl/
+.playwright-mcp/
+
+# Vendored open-source plugins (use composer / WP-CLI to install)
+wp-content/plugins/woocommerce/
+wp-content/plugins/redis-cache/
+wp-content/plugins/ns-cloner-site-copier/
+wp-content/plugins/wp-mail-smtp/
+wp-content/plugins/microsoft-clarity/
+wp-content/plugins/bing-webmaster-tools/
+wp-content/plugins/indexnow/
+wp-content/plugins/ajax-search-for-woocommerce/
+wp-content/plugins/loco-translate/
+wp-content/plugins/all-in-one-accessibility/
+wp-content/plugins/woo-variation-swatches/
+
+# Loader.io verification tokens (per-deployment)
+loaderio-*.html
+
+# Migration / debug utilities (keep out of public repo)
+audit_*.php
+debug_*.php
+debug-*.php
+fix_*.php
+flush_*.php
+migration_*.php
+generate_mega_slugs.php
+deploy_config*.php
+clear_opcache.php
+check.php
+create_staging.sh
+*.tar.gz

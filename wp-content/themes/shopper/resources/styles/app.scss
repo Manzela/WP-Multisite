@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'components/variables';
+@import 'components/mixins';
+
+@import 'woo/product';
+@import 'woo/my-account';
+@import 'woo/related-products';
+@import 'woo/wc-tabs';
+@import 'woo/sidebar-filter';
+@import 'woo/cart';
+@import 'woo/checkout';
+@import 'woo/store';
+@import 'fibosearch';
+@import 'stores';
+
+// define classes for theme color palette (add important in order to override potential woocommerce default declerations)
+.custom-color-primary {
+  color: var(--color-primary) !important;
+}
+.custom-bg-color-primary {
+  background-color: var(--color-primary) !important;
+}
+
+.custom-border-color-primary {
+  border-color: var(--color-primary) !important;
+}
+
+.custom-color-secondary {
+  color: var(--color-secondary) !important;
+}
+.custom-bg-color-secondary {
+  background-color: var(--color-secondary) !important;
+}
+.custom-border-color-secondary {
+  border-color: var(--color-secondary) !important;
+}
+
+// set fonts consistancy across all site's elements (overrides potential woocommerce default declerations)
+button, input, optgroup, select, textarea {
+  font-family: $font-family-base !important;
+}
+
+.override-default-styles { // used by privacy policy and terms and conditions pages
+    ol {
+        list-style: decimal !important;
+        margin: revert !important;
+        padding: revert !important;
+    }
+    
+    ul {
+        list-style: disc !important;
+        margin: revert !important;
+        padding: revert !important;
+    }
+}
+
+/* Sticky Footer Logic */
+/* 1. Force the Body to take at least 100% of the viewport height */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Critical for Sticky Footer */
+}
+
+/* 2. Force the Main Content to grow and push the Footer down */
+#app, main, .content-wrapper, #main {
+    flex: 1 0 auto; /* Grow to fill available space */
+    display: flex;
+    flex-direction: column;
+}
+
+// Ensure the internal main structure also grows if needed
+#app > main {
+    flex: 1 0 auto;
+}
+
+/* 3. The Footer Logic */
+.directory-footer {
+    flex-shrink: 0; /* Prevent footer from shrinking */
+    background-color: #f9fafb; /* Light Gray - Standard Corporate */
+    border-top: 1px solid #e5e7eb;
+    width: 100%;
+    z-index: 50; /* Ensure it sits above overlapping elements */
+}

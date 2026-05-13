@@ -1,0 +1,30 @@
+.woocommerce-cart {
+    .wp-block-woocommerce-cart-order-summary-shipping-block {
+        display: none;
+    }
+    .wp-block-woocommerce-cart-order-summary-block {
+        @apply p-4 bg-gray-100; 
+    }
+    .wc-block-components-button {
+        @apply text-white hover:opacity-50 transition-colors;
+    }
+}
+
+.wp-block-woocommerce-cart {
+    .wc-block-cart__submit-button, .wc-block-components-totals-coupon__button {
+        @apply custom-bg-color-primary;
+    }
+    .wp-block-product-new {
+        @apply hidden;
+    }
+}
+
+.wp-block-woocommerce-empty-cart-block {
+    @apply mt-4;
+}
+
+// override woocommerce button styles
+body:not(.woocommerce-block-theme-has-button-styles) .wc-block-components-button:not(.is-link):focus {
+    box-shadow: 0 0 0 2px var(--color-primary) !important;
+    box-shadow: inset 0 0 0 1px #fff, 0 0 0 2px var(--color-primary) !important;
+}

@@ -1,0 +1,19 @@
+.woocommerce {
+  .widget_price_filter {
+    .price_slider_amount {
+      .button {
+        display: none;
+      }
+    }
+
+    // NOTE: in order to override woocommerce default declerations, we need to use the exact same "path" of classes as woocommerce
+    .price_slider_wrapper .ui-widget-content {
+      @apply bg-black;
+    }
+    .ui-slider {
+      .ui-slider-range, .ui-slider-handle {
+        @apply custom-bg-color-secondary;
+      }
+    } 
+  }
+}

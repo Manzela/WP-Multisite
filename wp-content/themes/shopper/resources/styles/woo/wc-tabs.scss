@@ -1,0 +1,49 @@
+.woocommerce-tabs {
+  .wc-tabs {
+    @apply flex flex-row justify-start border-b border-[#eaeaea] mb-5 w-full;
+
+    li {
+      @apply list-none mr-5 py-4 px-5 cursor-pointer transition-all duration-300 inline-flex;
+
+      &.active {
+        @apply font-bold border-b-2 border-[var(--color-primary)] text-[var(--color-primary)];
+      }
+
+      &:hover {
+        @apply bg-opacity-40 bg-[var(--color-secondary)];
+      }
+
+      &:last-child {
+        @apply mr-0;
+      }
+    }
+  }
+
+  .wc-tab {
+    @apply block p-5 border border-[#eaeaea];
+  }
+
+  // Mobile styles only
+  @media (max-width: 640px) {
+    .wc-tabs {
+      @apply flex-col items-start border-none p-2.5 text-[0.8rem] text-center;
+
+      li {
+        @apply mr-0 mb-2.5 py-2.5 px-4 w-full border-b border-[#eaeaea];
+
+        &::before,
+        &::after {
+          @apply border-none shadow-none right-0;
+        }
+
+        &.active {
+          @apply border-b-2 border-[var(--color-primary)];
+        }
+      }
+    }
+
+    .wc-tab {
+      @apply p-2.5 text-[0.85rem];
+    }
+  }
+}
