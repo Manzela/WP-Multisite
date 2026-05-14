@@ -1,6 +1,5 @@
 @php
-// TODO: include this file
-// TODO: $storeOptions is undefined here
+// Delivery rules utility — requires $storeOptions to be injected by the parent template.
 
     function get_enable_delivery() {
         return $storeOptions['enable_delivery'] ?? 0;

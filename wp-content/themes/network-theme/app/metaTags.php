@@ -201,7 +201,7 @@ function generate_product_title($product_id = null)
 }
 
 /**
- * More robust product detection and title generation
+ * Product detection and title generation for document_title_parts filter.
  */
 add_filter('document_title_parts', function ($title_parts) {
     // Check multiple conditions for product pages

@@ -58,7 +58,7 @@ $policies = isset($options['policies']) ? $options['policies'] : [];
     @endif
 
     {{-- Reviews Section --}}
-    {{-- TEMPORARY: hide the entire section
+    {{-- Reviews section (disabled — enable when review moderation is ready)
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
         <div class="p-6 border-b border-gray-100">
             <h2 class="text-xl font-bold text-[var(--color-primary)] flex items-center">
@@ -75,7 +75,7 @@ $policies = isset($options['policies']) ? $options['policies'] : [];
             @endphp
         </div>
     </div>
-    END OF TEMPORARY --}}
+    --}}
 
     {{-- Policies Section --}}
     @if(!empty($policies))

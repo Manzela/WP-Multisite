@@ -4,7 +4,7 @@
  * Description: Enforces strictly defined Network Architecture (Homepages, Mega-Slugs) for the Network implementation. Must not be disabled.
  * Version: 1.0.3
  * Author: Antigravity
- * Author URI: https://google.deepmind
+ * Author URI: https://github.com/Manzela
  */
 
 defined('ABSPATH') || exit;
@@ -31,10 +31,6 @@ if (!function_exists('network_is_subsite_path')) {
     }
 }
 
-/**
- * 2. AUTOMATION: Enforce Homepage Settings (Shop / Sites Directory)
- * Triggered on: admin_init, wp_initialize_site
- */
 /**
  * 2. AUTOMATION: Enforce Homepage Settings (Shop / Sites Directory)
  * Triggered on: admin_init, wp_initialize_site
@@ -120,9 +116,8 @@ if (!function_exists('network_enforce_homepage_settings')) {
         } else {
             // 3. Emergency Creation (If Shop is missing on subsite)
             if (!$is_main && function_exists('wc_create_page')) {
-                // Trigger WC page creation if totally missing? 
-                // Maybe too aggressive. Logging error instead.
-                error_log("NETWORK ALERT: Could not find 'Shop' page for Site " . get_current_blog_id());
+                // Log missing Shop page rather than auto-creating to avoid side-effects.
+                error_log("Network Core: Shop page not found for Site " . get_current_blog_id());
             }
         }
 
@@ -329,9 +324,7 @@ add_action('wp_initialize_site', function ($new_site) {
     // [AUTOMATION] 1. Force Theme Activation 'network-theme'
     switch_theme('network-theme');
 
-    // [AUTOMATION] 2. Inherit Network Settings
-    // We access network options from the main site context or via get_site_option (which is network-wide for site meta but here we want the specific option stored on main blog if that is where network settings page saves it? 
-    // Wait, the network settings page uses `get_site_option('network_store_settings')` which is sitemeta. This is correct.
+    // [AUTOMATION] 2. Inherit Network Settings (network-wide via sitemeta)
     $network_settings = get_site_option('network_store_settings', []);
 
     if (!empty($network_settings)) {
@@ -627,7 +620,6 @@ class Network_Permalink_Manager
         add_filter('post_type_link', [__CLASS__, 'rewrite_product_link'], 20, 2);
 
         // Rewrite Taxonomy Links (/st/ -> /pl/)
-        // ALERT: Re-enabled with conservative logic (only swapping base, keeping /category/)
         add_filter('term_link', [__CLASS__, 'rewrite_term_link'], 20, 3);
 
         // Prevent "Canonical Redirect" loops
@@ -688,7 +680,7 @@ Network_Permalink_Manager::init();
 /**
  * 9. SECURITY HARDENING
  * - Disable XML-RPC (Safe since no Jetpack/App)
- * - Hardened REST API (Smart Blocking of User Enumeration)
+ * - Hardened REST API (User Enumeration Prevention)
  * - Obscurity (Hide WP Version)
  */
 class Network_Security_Manager
@@ -705,9 +697,9 @@ class Network_Security_Manager
         });
 
         // --------------------------------------------------------------------------
-        // 2. SECURITY: Hardened REST API (Smart Blocking)
+        // 2. SECURITY: Hardened REST API (User Enumeration Prevention)
         // --------------------------------------------------------------------------
-        // Disable the "Users" endpoint to prevent username scraping (The real security risk)
+        // Disable the Users endpoint to prevent username enumeration
         add_filter('rest_endpoints', [__CLASS__, 'disable_user_endpoints']);
 
         // Remove the REST API link tag from <head> to reduce discoverability
@@ -753,13 +745,7 @@ class Network_Security_Manager
     }
 }
 
-// EXTENDED INIT outside the class to avoid breaking existing structure if needed, 
-// OR we can just extend the init above.
-// Re-opening the class via separate strict init to keep cleaner diffs? 
-// No, let's just append to the init in a clean way in the next step or rewrite init now.
-// Actually, I'll rewrite the init method in a separate block if I can, but since I'm in Replace,
-// I should have included the Init method in the TargetContent if I wanted to change it.
-// Let's add the hooks via a separate add_action since the class is already closed and instantiated.
+// Additional security hooks registered after class instantiation.
 
 // APPENDING SECURITY COOKIE LOGIC
 add_action('init', function () {

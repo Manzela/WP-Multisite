@@ -203,14 +203,10 @@ the readme will list any important changes.
                     $ecommerceLink = get_option('store_settings')['store_info']['ecommerce_link'] ?? '';
                     $buy_url = !empty($source_url) ? esc_url($source_url) : esc_url($ecommerceLink);
                     
-/////////////////////////////////////
-// TEMPORARY CODE FOR EXAMPLE DEMO
-// redirect to google-maps instead of ecommerce product link
-if(get_bloginfo('name') === 'Demo Tenant') {
-    $buy_url = $ecommerceLink; // this will actually be a google-maps link
+// Tenant-specific override: Demo Tenant routes purchases to map link.
+if (get_bloginfo('name') === 'Demo Tenant') {
+    $buy_url = $ecommerceLink;
 }
-// END TEMPORARY CODE FOR EXAMPLE DEMO
-/////////////////////////////////////
 
                     // Calculate text color for better contrast
                     $primary_color = get_option('store_settings')['primary_color'] ?? '';

@@ -158,7 +158,7 @@ class ProductSeoServiceProvider extends ServiceProvider
 
     /**
      * [FIX] Final Master Robots.txt Injection
-     * Overwrites default WP robots.txt with the approved AI-Safe, Scalable strategy.
+     * Overwrites default WP robots.txt with the network-specific crawler policy.
      */
     public function handleRobotsTxt($output, $public)
     {

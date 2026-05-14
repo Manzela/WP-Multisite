@@ -4,7 +4,7 @@
 Plugin Name: Event Tracker Plugin
 Description: A plugin to track events and send them to Google Cloud Storage for analytics.
 Version: 1.0
-Author: Sharon Chen
+Author: Antigravity
 */
 
 // Exit if accessed directly

@@ -4,7 +4,7 @@
  * This script handles the manual sync functionality for Google Business Profile integration.
  * It provides real-time feedback during the sync process and updates the UI accordingly.
  * 
- * Author: Sharon Chen
+ * Author: Antigravity
  * Date: 28/04/2025
  */
 

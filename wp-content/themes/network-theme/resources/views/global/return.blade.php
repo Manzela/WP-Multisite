@@ -9,8 +9,7 @@
 @endsection
 
 @section('content')
-    <!-- TODO: @include('partials.page-header') doesn't work here -->
-    <!-- TEMPORARY: set up a custom page header -->
+    <!-- Custom page header (partials.page-header is not available in this context) -->
     <div class="page-header border-b border-gray-200">
         <h1 class="my-4 text-3xl font-bold leading-none tracking-tight text-gray-900">
             {{ __('Returns & Cancellations Policy', 'woocommerce') }}

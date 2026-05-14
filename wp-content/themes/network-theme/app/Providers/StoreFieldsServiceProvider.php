@@ -123,7 +123,7 @@ class StoreFieldsServiceProvider extends ServiceProvider
      */
     private function sync_homepage_settings($value)
     {
-        // Robust detection: Look for /tienda/ in the URL
+        // Detect subsite context via URL path segment.
         $path = $_SERVER['REQUEST_URI'] ?? '';
         $is_subsite = (strpos($path, '/tiendas/') !== false || strpos($path, '/tienda/') !== false);
 

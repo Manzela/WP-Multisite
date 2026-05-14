@@ -1,5 +1,5 @@
 <?php
-// NUCLEAR SUNRISE: DYNAMIC GLOBAL RESOLUTION
+// Dynamic Blog Resolution (sunrise.php)
 // Automatically resolves any subsite by matching the longest DB path prefix.
 // ROUTING STRATEGY:
 //   /st/ (store home) -> Resolve to subsite directly (sunrise handles)

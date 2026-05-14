@@ -122,7 +122,7 @@ class GrowthDashboardClient {
             'example-tenant-cc.shop',
             'example-tenant-dd.shop',
             'example-tenant-c-local.store',
-            'keter.co.il',
+            'example-tenant-parent.co.il',
             'example-tenant-d-es.shop',
             'example-tenant-e-es.shop',
             'example-tenant-e-pt.shop',
@@ -134,7 +134,7 @@ class GrowthDashboardClient {
             'example-tenant-gg.shop',
             'example-tenant-hh.shop',
         ];
-        // TEMPORARY: DONT FILTER OUT THOSE EVENTS! THEY ARE REAL! (the team eventes are probably "Direct Traffic")
+        // Internal referral filtering is disabled; cross-site referrals are valid traffic.
         // foreach ($internal_referrals as $pattern) {
         //     if ($pattern !== '' && strpos($referral_source, $pattern) !== false) {
         //         return false;

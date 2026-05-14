@@ -484,10 +484,8 @@ class PermalinkServiceProvider extends ServiceProvider
 
     public function get_url_segments()
     {
-        // 1. Get Store Slug
-        // Robust store slug retrieval from LOCAL path if we are on a subsite
-        // But if we are generating links, we might be on main site...
-        // Actually, this method is primarily used filters on SUBSITES.
+        // Store slug from the subsite's local path.
+        // Primarily used in link-generation filters on subsites.
 
         // Avoid lookup loop
         $path = trim(parse_url(get_option('home'), PHP_URL_PATH) ?? '', '/');
@@ -498,10 +496,7 @@ class PermalinkServiceProvider extends ServiceProvider
             $store_slug = 'global-store';
         }
 
-        // 2. Determine Language
-        // Heuristic: If we are on Main Site, we look at Request URI.
-        // If we are on Subsite, we default to 'pt' (Portuguese) unless specific logic exists.
-        // For now, let's look at the current request's first segment if available.
+        // Determine language from request URI or fall back to locale.
 
         $req_uri = $_SERVER['REQUEST_URI'] ?? '';
         $req_parts = explode('/', trim($req_uri, '/'));
@@ -553,9 +548,7 @@ class PermalinkServiceProvider extends ServiceProvider
             return $url;
         }
 
-        // 3. Force Virtual URL
-        // We defer to 'pt' to solve consistency issues, unless logic dictates otherwise.
-        // But get_url_segments() tries to be smart. Let's be explicit.
+        // Force virtual URL using the language derived from get_url_segments().
         // Use consistent detector
         $segments = $this->get_url_segments();
         $lang = $segments['lang'];
@@ -572,10 +565,7 @@ class PermalinkServiceProvider extends ServiceProvider
             return $base_url;
         }
 
-        // If path is something else, we might need to map it?
-        // Usually home_url() is used for the homepage link.
-        // If someone calls home_url('/checkout/'), we might break it if we just return $base_url.
-        // But for now, the user complains about the base slug.
+        // Non-root paths are not remapped; return the store base URL.
 
         return $base_url;
     }

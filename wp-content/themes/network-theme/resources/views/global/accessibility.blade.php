@@ -98,6 +98,6 @@
 
     @else
         {{-- English content --}}
-        {{-- TODO --}}
+        {{-- English locale content not yet implemented --}}
     @endif
 @endsection

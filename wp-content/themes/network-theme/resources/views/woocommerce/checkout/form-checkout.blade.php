@@ -40,7 +40,7 @@
                 {{-- Contact Information --}}
                 <div>
                     <div class="bg-white rounded-lg p-6">
-                        {{-- TEMPORARY hide this section --}}
+                        {{-- Default billing hook disabled; using custom contact fields instead --}}
                         <!-- @php(do_action('woocommerce_checkout_billing')) -->
                         <h2 class="text-lg font-medium text-gray-900 mb-6">
                             {{__('Contact information', 'woocommerce')}}
@@ -99,7 +99,7 @@
                 </div>
 
                 {{-- Shipping Section --}}
-                <!-- TEMPORARY hide this section -->
+                <!-- Shipping section disabled; pickup-only flow -->
                 <div class="hidden">
                     <h2 class="text-lg font-medium text-gray-900 mb-4">
                         {{__('Shipping details', 'woocommerce')}}

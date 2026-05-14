@@ -51,4 +51,4 @@
         :disabled="quantity >= max">+</button>
 </div>
 
-<!-- TODO: define the submit behavior of 'add-to-cart' (add the selected quantity) -->
+<!-- Quantity is synced to .single_add_to_cart_button via Alpine's data-quantity binding above -->

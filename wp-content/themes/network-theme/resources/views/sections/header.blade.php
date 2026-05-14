@@ -115,7 +115,7 @@
           @endif
 
           <!-- My account dropdown -->
-          <!-- TEMPORARY: hidden -->
+          <!-- Account dropdown (currently disabled) -->
           <div class="hidden relative flex-shrink-0 {{ is_rtl() ? 'mr-4 -ml-2' : 'ml-4 -mr-2' }}" x-data="{ open: false }"
             @click.away="open = false">
             <div>

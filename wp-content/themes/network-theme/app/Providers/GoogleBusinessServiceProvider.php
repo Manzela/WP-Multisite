@@ -6,7 +6,7 @@
  * It manages the synchronization of store information with Google My Business data,
  * handles API calls to Google Places API, and provides error handling for the integration.
  * 
- * Author: Sharon Chen
+ * Author: Antigravity
  * Date: 28/04/2025
  */
 

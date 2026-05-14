@@ -1,5 +1,5 @@
 <?php
-    // Temporary line to delete the sync option - REMOVE THIS LINE AFTER TESTING
+    // Debug: uncomment to reset sync state.
     // delete_option('gmb_last_sync'); delete_option('gmb_sync_error');
     
     $last_sync = get_option('gmb_last_sync');

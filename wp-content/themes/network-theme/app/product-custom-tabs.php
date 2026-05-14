@@ -80,9 +80,8 @@ function customProductTabContent() {
     echo view('woocommerce.partials.policies-accordion', compact('policies'))->render();
 }
 
-// TEMPORARY CODE FOR DILAY TESTING SEO:
-// only for "example-tenant-mall.example-network.shop" sub-domain
-// add specific text to the end of the description tab
+// Tenant-specific SEO text appended to description tab.
+// Applies only to the "example-tenant-mall" subdomain.
 add_filter('woocommerce_product_tabs', function($tabs) {
     if(strpos(esc_url($_SERVER['HTTP_HOST']), 'example-tenant-mall.example-network.shop') !== false) {
         if (is_product()) {

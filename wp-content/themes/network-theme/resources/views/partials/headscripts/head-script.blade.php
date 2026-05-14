@@ -6,7 +6,7 @@
     $scripts = $site_settings['network_scripts'] ?? [];
     $visitor_id = '';
 
-    // Robust Cookie/Session Retrieval
+    // Cookie/Session Retrieval
     $referral_data = session('referral_data') ?: ($_COOKIE['referral_data'] ?? '');
 
     if (!empty($referral_data)) {

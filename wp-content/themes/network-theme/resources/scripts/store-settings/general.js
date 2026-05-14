@@ -5,9 +5,9 @@
  * Author: Edward Ziadeh
  * Date: October 30, 2024
  * 
- * Updated: December 25, 2024 by Sharon Chen:
- * - adding store_logo field
- * - Refactored the code to use a single function for handling media upload/remove
+ * Updated: December 25, 2024:
+ * - Added store_logo field
+ * - Refactored media upload/remove to use a shared handler
  * 
  */
 (function($) {

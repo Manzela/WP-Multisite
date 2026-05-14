@@ -6,7 +6,7 @@ class ThirdPartyScriptManager {
     
     /**
      * Registry of third-party services and their consent requirements
-     * This is where you add new services - much more scalable than individual managers
+     * Service registry and consent-based script management.
      */
     private $service_registry = [
         // Analytics Services

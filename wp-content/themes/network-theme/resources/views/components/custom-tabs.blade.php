@@ -79,10 +79,7 @@
 function accordion($title, $content) {
   if(empty($content)) return null;
 
-  // TEMPORARY CODE FOR EXAMPLE DEMO
-  // in order to restore the original code, remove the second condition from the x-data attribute
-  // specificaly, this exact code:
-  //  && ' . (get_bloginfo('name') !== 'Demo Tenant') . '
+  // Demo Tenant: collapse description by default to showcase accordion UX.
   
   return '
   <div x-data="{ isOpen: \'' . esc_html($title) . '\' === \'' . __('Description', 'woocommerce') . '\' && ' . (get_bloginfo('name') !== 'Demo Tenant' ? 'true' : 'false') . ' }"
